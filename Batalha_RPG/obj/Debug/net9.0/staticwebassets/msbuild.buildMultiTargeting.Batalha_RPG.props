@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Batalha_RPG.props" />
+</Project>
