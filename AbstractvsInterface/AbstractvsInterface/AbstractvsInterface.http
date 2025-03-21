@@ -1,0 +1,6 @@
+@AbstractvsInterface_HostAddress = http://localhost:5150
+
+GET {{AbstractvsInterface_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
