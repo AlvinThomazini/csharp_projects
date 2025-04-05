@@ -8,7 +8,7 @@ namespace ListProgram
         static void Main(string[] args)
         {
             List<String> profetas = new List<String>();
-
+            profetas.Add("Joseph Smith");
             profetas.Add("Russel M. Nelson");
             profetas.Add("Dalin H. Oaks");
             profetas.Add("Henry B Eiring");
