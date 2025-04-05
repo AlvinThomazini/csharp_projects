@@ -1,6 +1,8 @@
 using System;
 
-class Apostolos
+namespace LINQ;
+
+public class Apostolos
 {
     // Propriedades encapsuladas
     public string Nome { get; private set; }
