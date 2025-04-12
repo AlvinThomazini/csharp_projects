@@ -56,7 +56,10 @@ class Program
         }
 
         Console.WriteLine("Você quer ver a lista completa dos apóstolos antes? (S/N)");
-        string? escolha = Console.ReadLine()?.Trim().ToUpper(); //Operador Condicional Nulo
+
+        string? escolha = Console.ReadLine()?
+            .Trim()
+            .ToUpper(); //Operador Condicional Nulo
 
         // if(escolha?.Equals("S", StringComparison.InvariantCultureIgnoreCase) is true)
         // {
@@ -89,7 +92,7 @@ class Program
         profetas.GroupBy(a => a.Idade); //Agrupa os itens da coleção de acordo com a condição
         profetas.Join(profetas, a => a.Idade, b => b.Idade, (a, b) => new { a, b }); //Faz um join entre duas coleções de acordo com a condição
         profetas.Select(a => new { a.Nome, a.Idade }); //Seleciona os itens da coleção de acordo com a condição
-        
+
         if (escolha == "S")
         {
             Console.WriteLine("\n📜 Lista completa dos apóstolos:\n");
