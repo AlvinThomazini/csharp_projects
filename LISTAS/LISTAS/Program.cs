@@ -11,7 +11,7 @@ namespace ListProgram
             profetas.Add("Joseph Smith");
             profetas.Add("Russel M. Nelson");
             profetas.Add("Dalin H. Oaks");
-            profetas.Add("Henry B Eiring");
+            profetas.Add("Henry B Eiring"  );
             profetas.Add("Jeffrey R. Holland");
             profetas.Add("Dieter F Uchtdorf");
             profetas.Add("David A. Bednar");

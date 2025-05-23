@@ -1,41 +1,44 @@
-var builder = WebApplication.CreateBuilder(args);
+using System;
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+class Program
 {
-    app.MapOpenApi();
-}
+    static void Main()
+    {
+        ToDoListManager manager = new ToDoListManager();
 
-app.UseHttpsRedirection();
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine("==== TO DO LIST ====");
+            manager.ShowTasks();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+            Console.WriteLine("\nOpções:");
+            Console.WriteLine("1. Adicionar tarefa");
+            Console.WriteLine("2. Remover tarefa");
+            Console.WriteLine("3. Sair");
+            Console.Write("Escolha: ");
+            string opcao = Console.ReadLine();
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
+            if (opcao == "1")
+            {
+                Console.Write("Descrição: ");
+                string desc = Console.ReadLine();
+                manager.AddTask(desc);
+            }
+            else if (opcao == "2")
+            {
+                Console.Write("Índice da tarefa a remover: ");
+                if (int.TryParse(Console.ReadLine(), out int index))
+                {
+                    manager.RemoveTask(index);
+                }
+            }
+            else if (opcao == "3")
+            {
+                break;
+            }
+        }
 
-app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+        Console.WriteLine("Até mais!");
+    }
 }
