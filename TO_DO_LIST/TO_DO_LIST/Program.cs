@@ -19,6 +19,9 @@ class Program
             Console.Write("Escolha: ");
             string opcao = Console.ReadLine();
 
+
+            // Usar switch case para as ações
+            // ao invés de chamar o código, chamar funções/métodos para cada ação
             if (opcao == "1")
             {
                 Console.Write("Descrição: ");

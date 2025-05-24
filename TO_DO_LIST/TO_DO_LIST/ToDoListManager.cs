@@ -18,6 +18,7 @@ public class ToDoListManager
         Tasks.Add(new TaskItem(description));
         SaveToFile();
     }
+    
     public void RemoveTask(int index)
     {
         if (index >= 0 && index < Tasks.Count)
